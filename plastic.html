@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>plastic waste</title>
+    <link rel="icon" href="logo_R.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .bg {
+            position: fixed; /* Ensure background is fixed */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("background3.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1; /* Place the background behind other elements */
+        }
+        .main-content {
+            position: relative; /* Create a new stacking context */
+            z-index: 1; /* Ensure content is above the background */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Light background with opacity */
+            border-radius: 10px; /* Optional: Rounded corners */
+            margin-bottom: 20px; /* Space below header */
+            text-align: center;
+        }
+
+        .header img {
+            margin-bottom: 10px;
+        }
+
+        .elementor-widget-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Light background with opacity */
+            border-radius: 10px; /* Optional: Rounded corners */
+            margin: 10px; /* Space between containers */
+            width: 45%;
+        }
+
+        .content {
+            width: 45%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .image {
+            width: 45%;
+            padding: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            align-self: flex-end; /* Align the button to the right */
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div> <!-- Background container -->
+
+        <div class="elementor-widget-container">
+            <div class="container">
+                <div class="image">
+                    <img src="Bottle.jpg" alt="Description of the bottle type plastic image">
+                </div>
+                <div class="content">
+                    <h1>Bottles</h1>
+                    <a href="https://docs.google.com/forms/d/1V-9sz8gJ2Wl-kFYZST-akLNCF7RnPKZnLXKuZ6_nIp4/edit"><button>Pickup Request</button></a>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="image">
+                    <img src="plastic_raw.jpg" alt="Description of the plastic image">
+                </div>
+                <div class="content">
+                    <h1>Raw Plastic</h1>
+                    <a href="https://docs.google.com/forms/d/1V-9sz8gJ2Wl-kFYZST-akLNCF7RnPKZnLXKuZ6_nIp4/edit"><button>Pickup Request</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

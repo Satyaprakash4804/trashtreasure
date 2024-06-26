@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Both waste</title>
+    <link rel="icon" href="logo_R.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <style id='wp-block-site-logo-inline-css'>
+        .wp-block-site-logo{box-sizing:border-box;line-height:0}.wp-block-site-logo a{display:inline-block;line-height:0}.wp-block-site-logo.is-default-size img{height:auto;width:120px}.wp-block-site-logo img{height:auto;max-width:100%}.wp-block-site-logo a,.wp-block-site-logo img{border-radius:inherit}.wp-block-site-logo.aligncenter{margin-left:auto;margin-right:auto;text-align:center}.wp-block-site-logo.is-style-rounded{border-radius:9999px}
+        </style>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+		background-color: rgba(255,255,255,0.6);
+		color: rgb(14, 10, 10);
+		padding: 10px 20px;
+		position: -webkit-sticky; 
+		position: fixed;
+		top: 0;
+		transition:0.5s ease ;
+		height:60px;
+		width: 100%;
+	    z-index: 1;
+	}
+
+        .bg {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("bg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1; 
+        }
+
+        .main-content {
+            position: relative; 
+            z-index: 1; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px; 
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header img {
+            margin-bottom: 10px;
+        }
+
+        .elementor-widget-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px; 
+            margin: 10px;
+            width: 45%; 
+        }
+
+        .content {
+            width: 45%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .image {
+            width: 45%;
+            padding: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+        wp-block-site-title{font-size: var(--wp--preset--font-size--medium);font-weight: 600;}
+.wp-block-site-title a:where(:not(.wp-element-button)){text-decoration: none;}
+        button {
+            align-self: flex-end;
+            padding: 10px 20px;   
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <style id='wp-block-site-title-inline-css'>
+    .wp-block-site-title a{color:inherit}
+</style>
+</head>
+<body>
+    <header id="header">
+        <div class="wp-block-site-logo">
+            <img width="48" height="39" src="logo_R.jpg" class="custom-logo" alt="TrashTreasure" decoding="async" />
+          
+    </header>
+    <div class="bg"></div> 
+
+    <div class="main-content">
+        <div class="header">
+            <img src="logo_R.jpg" width="50" alt="Avatar" class="avatar">
+            <h2>TrashTreasure</h2>
+        </div>
+
+        <div class="elementor-widget-container">
+            <div class="container">
+                <div class="image">
+                    <img src="paper.jpg" alt="Description of the paper image">
+                </div>
+                <div class="content">
+                    <h1>Paper</h1>
+                    <a href="paper.html"><button>Pickup Request</button></a>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="image">
+                    <img src="plastic.jpg" alt="Description of the plastic image">
+                </div>
+                <div class="content">
+                    <h1>Plastic</h1>
+                    <a href="plastic.html"><button>Pickup Request</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

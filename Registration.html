@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .bg {
+            position: fixed; /* Ensure background is fixed */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("background3.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1; /* Place the background behind other elements */
+        }
+        .container {
+            margin-top: 500px;
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"], input[type="tel"], select, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            background-color: #359e4a;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="reset"] {
+            background-color: #dc3545;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup Request</title>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <h1>Pickup Request</h1>
+        <form id="pickup-form" action="pickup_request.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Customer Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone-no">Phone No:</label>
+                <input type="tel" id="phone-no" name="phone-no" placeholder="Phone Number" pattern="\d{10}" maxlength="10" title="Please enter a valid 10-digit phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" placeholder="Full address" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="pin-code">Pin Code:</label>
+                <input type="tel" id="pin-code" name="pin-code" placeholder="PIN CODE OR ZIP PIN" pattern="\d{6}" title="Please enter a valid 6-digit pin code" maxlength="6" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select city</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="greater-noida">Greater Noida</option>
+                    <option value="noida">Noida</option>
+                    <option value="varanasi">Varanasi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="waste-type">Type of Waste:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="cardboard" value="cardboard"> Cardboard</label>
+                    <label><input type="checkbox" name="newspaper" value="newspaper"> Newspaper</label>
+                    <label><input type="checkbox" name="book_copies" value="book_copies"> Books and Copies</label>
+                    <label><input type="checkbox" name="plastic_bottles" value="plastic_bottles"> Plastic Bottles</label>
+                    <label><input type="checkbox" name="raw_plastic" value="raw_plastic"> Raw Plastic</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="waste-image">Upload Image of Waste:</label>
+                <input type="file" id="waste-image" name="waste-image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Approximate Weight (kg):</label>
+                <input type="number" id="min-weight" name="min-weight" placeholder="Min" min="0" required>
+                <input type="number" id="max-weight" name="max-weight" placeholder="Max" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pickup-date">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pickup-time">Pickup Time Slot:</label>
+                <select id="pickup-time" name="pickup-time" required>
+                    <option value="">Select a time slot</option>
+                    <option value="morning">Morning (8 AM - 12 PM)</option>
+                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                </select>
+            </div>
+
+            <div class="form-buttons">
+                <button type="reset">Reset</button>
+                <button type="submit" onclick="validateForm()">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('pickup-form').addEventListener('submit', function(event) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkboxChecked = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+            
+            if (!checkboxChecked) {
+                alert('Please select at least one type of waste.');
+                event.preventDefault();
+            }
+        });
+
+        function validateForm() {
+            const form = document.getElementById('pickup-form');
+            if (form.checkValidity()) {
+                alert('You want to confirm the pickup request');
+                form.submit();
+            }
+        }
+    </script>
+</body>
+</html>
